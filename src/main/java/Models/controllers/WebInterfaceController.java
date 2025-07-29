@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class WebInterfaceController {
 
-    @Value("${server.port:52343}")
+    @Value("${server.port:8080}")
     private String serverPort;
 
     @GetMapping("/")

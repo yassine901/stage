@@ -1,6 +1,7 @@
 package Models.repositories;
 
 import Models.entities.ReservationEntity;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -178,6 +179,7 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
          * Marquer les réservations comme traitées
          */
         @Modifying
+        @Transactional
         @Query("UPDATE ReservationEntity r SET r.status = 'PROCESSED', r.updatedAt = :updatedAt WHERE r.id IN :ids")
         int markAsProcessed(@Param("ids") List<Long> ids, @Param("updatedAt") LocalDateTime updatedAt);
 
@@ -185,6 +187,7 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
          * Marquer les réservations comme annulées
          */
         @Modifying
+        @Transactional
         @Query("UPDATE ReservationEntity r SET r.status = 'CANCELLED', r.updatedAt = :updatedAt WHERE r.id IN :ids")
         int markAsCancelled(@Param("ids") List<Long> ids, @Param("updatedAt") LocalDateTime updatedAt);
 
@@ -192,6 +195,7 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
          * Mettre à jour le statut d'une réservation par référence
          */
         @Modifying
+        @Transactional
         @Query("UPDATE ReservationEntity r SET r.status = :status, r.updatedAt = :updatedAt WHERE r.operationReference = :operationReference")
         int updateStatusByOperationReference(@Param("operationReference") String operationReference,
                                              @Param("status") String status,
@@ -258,6 +262,4 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
             @Param("operRef") String operRef,
             @Param("status") String status
     );
-    }
-
-
+}
