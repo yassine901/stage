@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="AttijariwafaTransactionWS"
+targetNamespace="urn:schemas-attijariwafa-com:transaction-data:TransactionProcessor"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="urn:schemas-attijariwafa-com:transaction-data:TransactionProcessor"
+ xmlns:data="urn:schemas-attijariwafa-com:transaction-data">
+   <wsdl:types>
+      <xsd:schema>
+         <xsd:import namespace="urn:schemas-attijariwafa-com:transaction-data" 
+         schemaLocation="AttijariwafaTransaction.xsd"/>
+      </xsd:schema>
+   </wsdl:types>
+   
+   
+   
+   <wsdl:message name="reservationMessageIn">
+      <wsdl:part name="input" element="data:reservationReq"/>
+   </wsdl:message>
+   <wsdl:message name="reservationMessageOut">
+      <wsdl:part name="result" element="data:reservationResp"/>
+   </wsdl:message>
+  
+   <wsdl:message name="operationAdviceMessageIn">
+      <wsdl:part name="input" element="data:operationAdviceReq"/>
+   </wsdl:message>
+   <wsdl:message name="operationAdviceMessageOut">
+      <wsdl:part name="result" element="data:operationAdviceResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="operationCancelMessageIn">
+      <wsdl:part name="input" element="data:operationCancelReq"/>
+   </wsdl:message>
+   <wsdl:message name="operationCancelMessageOut">
+      <wsdl:part name="result" element="data:operationCancelResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="operationUpdateMessageIn">
+      <wsdl:part name="input" element="data:operationUpdateReq"/>
+   </wsdl:message>
+   <wsdl:message name="operationUpdateMessageOut">
+      <wsdl:part name="result" element="data:operationUpdateResp"/>
+   </wsdl:message>
+   
+      
+   <wsdl:message name="operationExecMessageIn">
+      <wsdl:part name="input" element="data:operationExecReq"/>
+   </wsdl:message>
+   <wsdl:message name="operationExecMessageOut">
+      <wsdl:part name="result" element="data:operationExecResp"/>
+   </wsdl:message>
+   
+    
+   <wsdl:message name="transactionExecMessageIn">
+      <wsdl:part name="input" element="data:transactionExecReq"/>
+   </wsdl:message>
+   <wsdl:message name="transactionExecMessageOut">
+      <wsdl:part name="result" element="data:transactionExecResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="fundsTransferValidateMessageIn">
+      <wsdl:part name="input" element="data:fundsTransferValidateReq"/>
+   </wsdl:message>
+   <wsdl:message name="fundsTransferValidateMessageOut">
+      <wsdl:part name="result" element="data:fundsTransferValidateResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="fundsTransferExecuteMessageIn">
+      <wsdl:part name="input" element="data:fundsTransferExecuteReq"/>
+   </wsdl:message>
+   <wsdl:message name="fundsTransferExecuteMessageOut">
+      <wsdl:part name="result" element="data:fundsTransferExecuteResp"/>
+   </wsdl:message>
+  
+   <wsdl:message name="fundsTransferCancelMessageIn">
+      <wsdl:part name="input" element="data:fundsTransferCancelReq"/>
+   </wsdl:message>
+   <wsdl:message name="fundsTransferCancelMessageOut">
+      <wsdl:part name="result" element="data:fundsTransferCancelResp"/>
+   </wsdl:message>
+   
+   
+   
+   <wsdl:message name="accountBalanceMessageIn">
+      <wsdl:part name="input" element="data:accountBalanceReq"/>
+   </wsdl:message>
+   <wsdl:message name="accountBalanceMessageOut">
+      <wsdl:part name="result" element="data:accountBalanceResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="queryCustomerAccountMessageIn">
+      <wsdl:part name="input" element="data:queryCustomerAccountReq"/>
+   </wsdl:message>
+   <wsdl:message name="queryCustomerAccountMessageOut">
+      <wsdl:part name="result" element="data:queryCustomerAccountResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="customerInfoMessageIn">
+      <wsdl:part name="input" element="data:customerInfoReq"/>
+   </wsdl:message>
+   <wsdl:message name="customerInfoMessageOut">
+      <wsdl:part name="result" element="data:customerInfoResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="accountStatementMessageIn">
+      <wsdl:part name="input" element="data:accountStatementReq"/>
+   </wsdl:message>
+   <wsdl:message name="accountStatementMessageOut">
+      <wsdl:part name="result" element="data:accountStatementResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="customerSummaryMessageIn">
+      <wsdl:part name="input" element="data:customerSummaryReq"/>
+   </wsdl:message>
+   <wsdl:message name="customerSummaryMessageOut">
+      <wsdl:part name="result" element="data:customerSummaryResp"/>
+   </wsdl:message>
+   
+    <wsdl:message name="customerAccountsMessageIn">
+      <wsdl:part name="input" element="data:customerAccountsReq"/>
+   </wsdl:message>
+   <wsdl:message name="customerAccountsMessageOut">
+      <wsdl:part name="result" element="data:customerAccountsResp"/>
+   </wsdl:message>
+   
+   <wsdl:message name="accountStatusMessageIn">
+      <wsdl:part name="input" element="data:accountStatusReq"/>
+   </wsdl:message>
+   <wsdl:message name="accountStatusMessageOut">
+      <wsdl:part name="result" element="data:accountStatusResp"/>
+   </wsdl:message>   
+   
+    
+ 
+    
+ 
+    
+    
+     
+   
+   
+     
+   <wsdl:message name="accountOpeningMessageIn">
+      <wsdl:part name="input" element="data:accountOpeningReq"/>
+   </wsdl:message>
+   <wsdl:message name="accountOpeningMessageOut">
+      <wsdl:part name="result" element="data:accountOpeningResp"/>
+   </wsdl:message>   
+    
+   <wsdl:message name="accountEventMessageIn">
+      <wsdl:part name="input" element="data:accountEventReq"/>
+   </wsdl:message>
+   <wsdl:message name="accountEventMessageOut">
+      <wsdl:part name="result" element="data:accountEventResp"/>
+   </wsdl:message>  
+   
+    
+      
+   
+   
+   
+   
+  
+   
+   
+   
+   
+   <wsdl:portType name="ITransactionProcessor">
+      <wsdl:operation name="reservation">
+         <wsdl:input name="reservationIn" message="tns:reservationMessageIn"/>
+         <wsdl:output name="reservationOut" message="tns:reservationMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="operationAdvice">
+         <wsdl:input name="operationAdviceIn" message="tns:operationAdviceMessageIn"/>
+         <wsdl:output name="operationAdviceOut" message="tns:operationAdviceMessageOut"/>
+      </wsdl:operation>
+       <wsdl:operation name="operationCancel">
+         <wsdl:input name="operationCancelIn" message="tns:operationCancelMessageIn"/>
+         <wsdl:output name="operationCancelOut" message="tns:operationCancelMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="operationUpdate">
+         <wsdl:input name="operationUpdateIn" message="tns:operationUpdateMessageIn"/>
+         <wsdl:output name="operationUpdateOut" message="tns:operationUpdateMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="operationExec">
+         <wsdl:input name="operationExecIn" message="tns:operationExecMessageIn"/>
+         <wsdl:output name="operationExecOut" message="tns:operationExecMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="transactionExec">
+         <wsdl:input name="transactionExecIn" message="tns:transactionExecMessageIn"/>
+         <wsdl:output name="transactionExecOut" message="tns:transactionExecMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="fundsTransferValidate">
+         <wsdl:input name="fundsTransferValidateIn" message="tns:fundsTransferValidateMessageIn"/>
+         <wsdl:output name="fundsTransferValidateOut" message="tns:fundsTransferValidateMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="fundsTransferExecute">
+         <wsdl:input name="fundsTransferExecuteIn" message="tns:fundsTransferExecuteMessageIn"/>
+         <wsdl:output name="fundsTransferExecuteOut" message="tns:fundsTransferExecuteMessageOut"/>
+      </wsdl:operation>
+       <wsdl:operation name="fundsTransferCancel">
+         <wsdl:input name="fundsTransferCancelIn" message="tns:fundsTransferCancelMessageIn"/>
+         <wsdl:output name="fundsTransferCancelOut" message="tns:fundsTransferCancelMessageOut"/>
+      </wsdl:operation>      
+      <wsdl:operation name="accountBalance">
+         <wsdl:input name="accountBalanceIn" message="tns:accountBalanceMessageIn"/>
+         <wsdl:output name="accountBalanceOut" message="tns:accountBalanceMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="queryCustomerAccount">
+         <wsdl:input name="queryCustomerAccountIn" message="tns:queryCustomerAccountMessageIn"/>
+         <wsdl:output name="queryCustomerAccountOut" message="tns:queryCustomerAccountMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="customerInfo">
+         <wsdl:input name="customerInfoIn" message="tns:customerInfoMessageIn"/>
+         <wsdl:output name="customerInfoOut" message="tns:customerInfoMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatement">
+         <wsdl:input name="accountStatementIn" message="tns:accountStatementMessageIn"/>
+         <wsdl:output name="accountStatementOut" message="tns:accountStatementMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="customerSummary">
+         <wsdl:input name="customerSummaryIn" message="tns:customerSummaryMessageIn"/>
+         <wsdl:output name="customerSummaryOut" message="tns:customerSummaryMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="customerAccounts">
+         <wsdl:input name="customerAccountsIn" message="tns:customerAccountsMessageIn"/>
+         <wsdl:output name="customerAccountsOut" message="tns:customerAccountsMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatus">
+         <wsdl:input name="accountStatusIn" message="tns:accountStatusMessageIn"/>
+         <wsdl:output name="accountStatusOut" message="tns:accountStatusMessageOut"/>
+      </wsdl:operation>
+     
+      
+      <wsdl:operation name="accountOpening">
+         <wsdl:input name="accountOpeningIn" message="tns:accountOpeningMessageIn"/>
+         <wsdl:output name="accountOpeningOut" message="tns:accountOpeningMessageOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="accountEvent">
+         <wsdl:input name="accountEventIn" message="tns:accountEventMessageIn"/>
+         <wsdl:output name="accountEventOut" message="tns:accountEventMessageOut"/>
+      </wsdl:operation>
+      
+      
+      
+      
+   
+   
+   
+   
+   
+  
+   
+   </wsdl:portType>
+   
+   
+   
+   <wsdl:binding name="ITransactionProcessor" type="tns:ITransactionProcessor">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="reservation">
+         <soap:operation soapAction="reservation" style="document"/>
+         <wsdl:input name="reservationIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="reservationOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="operationAdvice">
+         <soap:operation soapAction="operationAdvice" style="document"/>
+         <wsdl:input name="operationAdviceIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationAdviceOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+       <wsdl:operation name="operationCancel">
+         <soap:operation soapAction="operationCancel" style="document"/>
+         <wsdl:input name="operationCancelIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationCancelOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      <wsdl:operation name="operationUpdate">
+         <soap:operation soapAction="operationUpdate" style="document"/>
+         <wsdl:input name="operationUpdateIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationUpdateOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      
+      
+      
+       <wsdl:operation name="operationExec">
+         <soap:operation soapAction="operationExec" style="document"/>
+         <wsdl:input name="operationExecIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationExecOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="transactionExec">
+         <soap:operation soapAction="transactionExec" style="document"/>
+         <wsdl:input name="transactionExecIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="transactionExecOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="fundsTransferValidate">
+         <soap:operation soapAction="fundsTransferValidate" style="document"/>
+         <wsdl:input name="fundsTransferValidateIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="fundsTransferValidateOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="fundsTransferExecute">
+         <soap:operation soapAction="fundsTransferExecute" style="document"/>
+         <wsdl:input name="fundsTransferExecuteIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="fundsTransferExecuteOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="fundsTransferCancel">
+         <soap:operation soapAction="fundsTransferCancel" style="document"/>
+         <wsdl:input name="fundsTransferCancelIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="fundsTransferCancelOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      <wsdl:operation name="accountBalance">
+         <soap:operation soapAction="accountBalance" style="document"/>
+         <wsdl:input name="accountBalanceIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountBalanceOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+       <wsdl:operation name="queryCustomerAccount">
+         <soap:operation soapAction="queryCustomerAccount" style="document"/>
+         <wsdl:input name="queryCustomerAccountIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="queryCustomerAccountOut">
+              <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="customerInfo">
+         <soap:operation soapAction="customerInfo" style="document"/>
+         <wsdl:input name="customerInfoIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="customerInfoOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatement">
+         <soap:operation soapAction="accountStatement" style="document"/>
+         <wsdl:input name="accountStatementIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountStatementOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="customerSummary">
+         <soap:operation soapAction="customerSummary" style="document"/>
+         <wsdl:input name="customerSummaryIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="customerSummaryOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="customerAccounts">
+         <soap:operation soapAction="customerAccounts" style="document"/>
+         <wsdl:input name="customerAccountsIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="customerAccountsOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatus">
+         <soap:operation soapAction="accountStatus" style="document"/>
+         <wsdl:input name="accountStatusIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountStatusOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      
+      
+     <wsdl:operation name="accountOpening">
+         <soap:operation soapAction="accountOpening" style="document"/>
+         <wsdl:input name="accountOpeningIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountOpeningOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="accountEvent">
+         <soap:operation soapAction="accountEvent" style="document"/>
+         <wsdl:input name="accountEventIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountEventOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+    
+      
+      
+   </wsdl:binding>
+   
+   
+  
+   
+   
+   
+   
+   <wsdl:service name="TransactionProcessor">
+      <wsdl:documentation>Attijariwafa Position Web Services</wsdl:documentation>
+      <wsdl:port name="portXML" binding="tns:ITransactionProcessor">
+         <soap:address location="http://172.29.83.52:7801/position/v2/transactionProcessor"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:schemas-attijariwafa-com:transaction-data" targetNamespace="urn:schemas-attijariwafa-com:transaction-data" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   
+   
+    <xsd:element name="reservationReq"       type="tns:ReservationReq" />
+    <xsd:element name="reservationResp"      type="tns:ReservationResp" />
+    
+    <xsd:element name="operationAdviceReq"   type="tns:OperationAdviceReq" />
+    <xsd:element name="operationAdviceResp"  type="tns:OperationAdviceResp" />
+    
+    <xsd:element name="operationCancelReq"   type="tns:OperationCancelReq" />
+    <xsd:element name="operationCancelResp"  type="tns:OperationCancelResp" />
+    
+    <xsd:element name="operationUpdateReq"   type="tns:OperationUpdateReq" />
+    <xsd:element name="operationUpdateResp"  type="tns:OperationUpdateResp" />
+    
+    <xsd:element name="operationExecReq"     type="tns:OperationExecReq" />
+    <xsd:element name="operationExecResp"    type="tns:OperationExecResp" />
+      
+    <xsd:element name="transactionExecReq"   type="tns:TransactionExecReq" />
+    <xsd:element name="transactionExecResp"  type="tns:TransactionExecResp" />
+    
+    <xsd:element name="fundsTransferValidateReq"   type="tns:FundsTransferValidateReq" />
+    <xsd:element name="fundsTransferValidateResp"  type="tns:FundsTransferValidateResp" />
+    
+    <xsd:element name="fundsTransferExecuteReq"   type="tns:FundsTransferExecuteReq" />
+    <xsd:element name="fundsTransferExecuteResp"  type="tns:FundsTransferExecuteResp" />
+    
+    <xsd:element name="fundsTransferCancelReq"   type="tns:FundsTransferCancelReq" />
+    <xsd:element name="fundsTransferCancelResp"  type="tns:FundsTransferCancelResp" />
+    
+    
+    <xsd:element name="accountBalanceReq"    type="tns:AccountBalanceReq" />
+    <xsd:element name="accountBalanceResp"   type="tns:AccountBalanceResp" />
+    
+    <xsd:element name="queryCustomerAccountReq"    type="tns:QueryCustomerAccountReq" />
+    <xsd:element name="queryCustomerAccountResp"   type="tns:QueryCustomerAccountResp" />
+    
+    <xsd:element name="customerInfoReq"      type="tns:CustomerInfoReq" />
+    <xsd:element name="customerInfoResp"     type="tns:CustomerInfoResp" />
+    
+    <xsd:element name="accountStatementReq"  type="tns:AccountStatementReq" />
+    <xsd:element name="accountStatementResp" type="tns:AccountStatementResp" />
+    
+    <xsd:element name="customerSummaryReq"   type="tns:CustomerSummaryReq" />
+    <xsd:element name="customerSummaryResp"  type="tns:CustomerSummaryResp" />
+    
+    <xsd:element name="customerAccountsReq"   type="tns:CustomerAccountsReq" />
+    <xsd:element name="customerAccountsResp"  type="tns:CustomerAccountsResp" />
+    
+    <xsd:element name="accountStatusReq"     type="tns:AccountStatusReq" />
+    <xsd:element name="accountStatusResp"    type="tns:AccountStatusResp" />
+    
+    <xsd:element name="accountEventReq"      type="tns:AccountEventReq" />
+    <xsd:element name="accountEventResp"     type="tns:AccountEventResp" />
+    
+     
+    <xsd:element name="accountOpeningReq"    type="tns:AccountOpeningReq" />
+    <xsd:element name="accountOpeningResp"   type="tns:AccountOpeningResp" />
+    
+    
+    
+     <xsd:complexType name="AccountBalanceReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="AcctBalReq">
+			<xsd:complexType>
+				<xsd:attribute name="account" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+  
+    
+    <xsd:complexType name="AccountBalanceResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="AcctBalResp">
+			<xsd:complexType>
+				<xsd:sequence>
+				      <xsd:element name="Account" type="tns:AccountAndOperations" minOccurs="1"/>
+       				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+     
+    <xsd:complexType name="QueryCustomerAccountReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="QueryCustAcctReq">
+			<xsd:complexType>
+				<xsd:attribute name="account" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+  
+    
+    <xsd:complexType name="QueryCustomerAccountResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="QueryCustAcctResp">
+			<xsd:complexType>
+				<xsd:sequence>
+				      <xsd:element name="Account"  type="tns:Account" minOccurs="1" maxOccurs="1" />
+				      <xsd:element name="Customer" type="tns:Customer" minOccurs="0" maxOccurs="1" />
+       				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="CustomerInfoReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="CustInfoReq">
+			<xsd:complexType>
+				<xsd:sequence>
+				      <xsd:element name="Customer" type="tns:Customer" minOccurs="1" maxOccurs="1" />
+       				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+  
+    
+    <xsd:complexType name="CustomerInfoResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+      
+    
+    <xsd:complexType name="AccountEventReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="AcctEvtReq">
+			<xsd:complexType>
+				<xsd:attribute name="account"   type="xsd:string" use="required"/>
+				<xsd:attribute name="sitexType" type="xsd:string" use="required"/>
+				<xsd:attribute name="action" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+   
+    
+    <xsd:complexType name="AccountEventResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+    <xsd:complexType name="AccountOpeningReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="AcctOpenReq">
+			<xsd:complexType>
+				<xsd:attribute name="account" type="xsd:string" use="required"/>
+				<xsd:attribute name="customerIdtf" type="xsd:string" />
+				<xsd:attribute name="openingDate" type="xsd:string" use="required"/>
+				<xsd:attribute name="bilan" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+   
+    
+    <xsd:complexType name="AccountOpeningResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+   
+    
+    
+    <xsd:complexType name="ReservationReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="ReserveReq">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="OperationData" type="tns:Operation" />
+					<xsd:element name="OperationContext" type="tns:NameValueList" />
+	        		</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+   </xsd:complexType>
+    
+    
+    
+    <xsd:complexType name="ReservationResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="ReserveResp"  type="tns:StandardResp"  />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+       
+    
+    
+     <xsd:complexType name="OperationAdviceReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="AdviceReq">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="OperationData" type="tns:Operation" />
+					<xsd:element name="OperationContext" type="tns:NameValueList" />
+	        		</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+   </xsd:complexType>
+    
+    
+    
+    <xsd:complexType name="OperationAdviceResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="AdviceResp" type="tns:StandardResp"  />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="OperationCancelReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="CancelReq">
+			<xsd:complexType>
+				<xsd:attribute name="operRef" type="xsd:string" use="required"/>
+				<xsd:attribute name="operStatus" type="tns:StatusEnum" use="required"/>
+				<xsd:attribute name="account" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+     <xsd:complexType name="OperationCancelResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="CancelResp" type="tns:StandardResp"  />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="OperationUpdateReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="OperUpdReq">
+			<xsd:complexType>
+				<xsd:attribute name="ruleCode"   type="xsd:string"     use="required"/>
+				<xsd:attribute name="operRef" type="xsd:string" use="required"/>
+				<xsd:attribute name="operStatus" type="tns:StatusEnum" use="required"/>
+				<xsd:attribute name="account" type="xsd:string" use="required"/>
+				<xsd:attribute name="amount"     type="xsd:long"       use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+   </xsd:complexType>
+    
+    
+    
+    <xsd:complexType name="OperationUpdateResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="OperUpdResp" type="tns:StandardResp"  />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+   
+    
+    
+    
+    <xsd:complexType name="OperationExecReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader"/>
+	        <xsd:element name="OperExeReq">
+			    <xsd:complexType>
+				     <xsd:sequence>
+				     	 <xsd:element  name="OperationData" type="tns:RuledOperation"/>
+	                             </xsd:sequence>
+    			    </xsd:complexType>
+		    </xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="OperationExecResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="OperExeResp" type="tns:StandardResp"  />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+  
+    
+    <xsd:complexType name="TransactionExecReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="TrxExeReq">
+			<xsd:complexType>
+			  	<xsd:sequence>
+					<xsd:element name="OperationData" type="tns:RuledOperation" maxOccurs="unbounded"  minOccurs="1" />
+				</xsd:sequence>
+				<xsd:attribute name="trxType" type="xsd:string" use="required"/>
+				<xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="TransactionExecResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+     <xsd:complexType name="FundsTransferValidateReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="FtValReq">
+			<xsd:complexType>
+				<xsd:sequence>
+				        <xsd:element name="Debit" type="tns:Operation" maxOccurs="1"  minOccurs="1" />
+				        <xsd:element name="Credits">
+						<xsd:complexType>
+							<xsd:sequence>
+		         				      <xsd:element name="Credit" type="tns:Operation" maxOccurs="unbounded"  minOccurs="1" />
+		         				</xsd:sequence>
+		         			</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="trxType" type="xsd:string" use="required"/>
+				<xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+				<xsd:attribute name="accepterDepassement" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FundsTransferValidateResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+     <xsd:complexType name="FundsTransferExecuteReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="FtExeReq">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="OperationData" type="tns:RuledOperation" maxOccurs="unbounded"  minOccurs="1" />
+				</xsd:sequence>
+				<xsd:attribute name="trxType" type="xsd:string" use="required"/>
+				<xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FundsTransferExecuteResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+     <xsd:complexType name="FundsTransferCancelReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="FtCanReq">
+	                <xsd:complexType>
+	                        <xsd:attribute name="trxType" type="xsd:string" use="required"/>
+				<xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+				<xsd:attribute name="operRef" type="xsd:string" use="required"/>
+				<xsd:attribute name="operStatus" type="tns:StatusEnum" use="required"/>
+				<xsd:attribute name="account" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FundsTransferCancelResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+	</xsd:sequence>
+    </xsd:complexType>
+   
+   
+    
+    <xsd:simpleType name="RuleEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RESER"/>
+			<xsd:enumeration value="RESAD"/>
+			<xsd:enumeration value="OPADV"/>
+			<xsd:enumeration value="OPUPD"/>
+			<xsd:enumeration value="OPCAN"/>
+			<xsd:enumeration value="OPPAY"/>
+			<xsd:enumeration value="OPCHK"/>
+			<xsd:enumeration value="OPTRA"/>
+		</xsd:restriction>
+    </xsd:simpleType>			
+    
+    
+    
+    
+    
+   
+    
+    
+     <xsd:complexType name="AccountStatementReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="AcctStmReq">
+			<xsd:complexType>
+				   <xsd:attribute name="account" type="xsd:string" use="required"/>
+				   <xsd:attribute name="typeRecherche" type="xsd:string" use="required"/>
+				   <xsd:attribute name="nbLastOperations" type="xsd:int" use="required"/>
+				   <xsd:attribute name="nbJoursHistorique" type="xsd:int" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+   </xsd:complexType>
+    
+  
+  
+    
+    <xsd:complexType name="AccountStatementResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="AcctStmResp">
+			<xsd:complexType>
+				<xsd:sequence>
+				      <xsd:element name="Account" type="tns:AccountAndOperations" minOccurs="1"/>
+       				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+      <xsd:complexType name="CustomerSummaryReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="CustSumReq">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="Account" type="xsd:string" maxOccurs="unbounded"  minOccurs="1" />
+				</xsd:sequence>
+				<xsd:attribute name="customerId" type="xsd:string" use="required"/>
+				<xsd:attribute name="nbLastOperations" type="xsd:int" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+   </xsd:complexType>
+    
+  
+  
+    
+    <xsd:complexType name="CustomerSummaryResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="CustSumResp">
+			<xsd:complexType>
+				<xsd:sequence>
+				      <xsd:element name="Account" type="tns:AccountAndOperations"  maxOccurs="unbounded" minOccurs="1"/>
+       				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+       <xsd:complexType name="CustomerAccountsReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="CustAcctsReq">
+			<xsd:complexType>
+				   <xsd:attribute name="account" type="xsd:string" use="required"/>
+				   <xsd:attribute name="typeRestitution" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+   </xsd:complexType>
+    
+  
+  
+    
+    <xsd:complexType name="CustomerAccountsResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="CustAcctsResp">
+			<xsd:complexType>
+				<xsd:sequence>
+				      <xsd:element name="Account" type="tns:SimpleAccount"  maxOccurs="unbounded" minOccurs="0"/>
+       				</xsd:sequence>
+       				<xsd:attribute name="idtfcl"          type="xsd:string"     use="required"/>
+				<xsd:attribute name="titre"           type="xsd:string"     use="required"/>
+				<xsd:attribute name="designation"     type="xsd:string"     use="required"/>
+				<xsd:attribute name="categorie"       type="xsd:string"     use="required"/>
+				<xsd:attribute name="marche"          type="xsd:string"     use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+     <xsd:complexType name="AccountStatusReq">
+	<xsd:sequence>
+	        <xsd:element name="ReqHeader" type="tns:RequestHeader" />
+	        <xsd:element name="AcctStaReq">
+			<xsd:complexType>
+				<xsd:attribute name="account" type="xsd:string" use="required"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+   </xsd:complexType>
+    
+  
+    
+    <xsd:complexType name="AccountStatusResp">
+	<xsd:sequence>
+	  	<xsd:element name="RespHeader" type="tns:ResponseHeader" />
+		<xsd:element name="AcctStaResp">
+			<xsd:complexType>
+				<xsd:sequence>
+				      <xsd:element name="Account" type="tns:AccountAndOperations" minOccurs="1"/>
+       				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+    
+    <xsd:complexType name="RequestHeader">
+ 	<xsd:attribute name="canal" type="xsd:string" use="required"/>
+	<xsd:attribute name="user" type="xsd:string" use="required"/>
+	<xsd:attribute name="password" type="xsd:string" use="required"/>
+	<xsd:attribute name="signature" type="xsd:string" use="required"/>
+	<xsd:attribute name="correlationId" type="xsd:string" use="required"/>
+	<xsd:attribute name="ts" type="xsd:string" use="required"/>
+	<xsd:attribute name="replyFormat" type="tns:ReplyFormatEnum" use="required"/>
+    </xsd:complexType>
+    
+ 
+    
+    
+    <xsd:complexType name="ResponseHeader">
+    	<xsd:sequence>
+              <xsd:element name="ReturnCode" type="xsd:int" minOccurs="1"/>
+              <xsd:element name="ErrorCode" type="xsd:string" minOccurs="1"/>
+       	      <xsd:element name="ReturnMessage" type="xsd:string" minOccurs="1"/>
+        </xsd:sequence>
+	<xsd:attribute name="canal" type="xsd:string" use="required"/>
+	<xsd:attribute name="correlationId" type="xsd:string" use="required"/>
+    </xsd:complexType>
+    
+         
+    
+    
+    
+    <xsd:complexType name="StandardResp">
+	<xsd:sequence>
+	      <xsd:element name="Account" type="xsd:string" minOccurs="0"/>
+	      <xsd:element name="NewAvailBal" type="xsd:long" minOccurs="0"/>
+	</xsd:sequence>
+    </xsd:complexType>
+
+    
+    
+   
+   
+   
+    
+    <xsd:simpleType name="StatusEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="OCI"/>
+			<xsd:enumeration value="OBP"/>
+			<xsd:enumeration value="OSD"/>
+			<xsd:enumeration value="OAV"/>
+		</xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="ReplyFormatEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FULL"/>
+			<xsd:enumeration value="NONE"/>
+		</xsd:restriction>
+    </xsd:simpleType>
+    
+     
+   
+    
+  <xsd:complexType name="NameValueList">
+	<xsd:sequence>
+	   <xsd:element maxOccurs="unbounded" name="Detail" type="tns:Detail" minOccurs="0" />
+	</xsd:sequence>
+  </xsd:complexType>
+  
+   
+  <xsd:complexType name="Detail">
+    <xsd:simpleContent>
+    	<xsd:extension base="xsd:string">
+	    <xsd:attribute name="key" type="xsd:string" use="required"/>
+	</xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="Operation"> 
+	<xsd:attribute name="operRef"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="canal"      type="xsd:string"     use="required"/>
+	<xsd:attribute name="operType"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="operStatus" type="tns:StatusEnum" use="required"/>
+	<xsd:attribute name="account"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="amount"     type="xsd:long"       use="required"/>
+	<xsd:attribute name="sens"       type="xsd:string"     use="required"/>
+	<xsd:attribute name="operDate"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="valueDate"  type="xsd:string"     use="required"/>
+	<xsd:attribute name="endDate"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="operLib"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="operLib2"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="operLib3"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="libCourt"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="recorded"   type="xsd:string"     use="required"/>
+   </xsd:complexType>
+   
+   <xsd:complexType name="RuledOperation">
+        <xsd:attribute name="ruleCode"   type="xsd:string"     use="required"/> 
+	<xsd:attribute name="operRef"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="canal"      type="xsd:string"     use="required"/>
+	<xsd:attribute name="operType"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="operStatus" type="tns:StatusEnum" use="required"/>
+	<xsd:attribute name="account"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="amount"     type="xsd:long"       use="required"/>
+	<xsd:attribute name="sens"       type="xsd:string"     use="required"/>
+	<xsd:attribute name="operDate"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="valueDate"  type="xsd:string"     use="required"/>
+	<xsd:attribute name="endDate"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="operLib"    type="xsd:string"     use="required"/>
+	<xsd:attribute name="operLib2"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="operLib3"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="libCourt"   type="xsd:string"     use="required"/>	
+   </xsd:complexType>
+   
+   
+
+
+
+     <xsd:complexType name="AccountAndOperations">
+	<xsd:sequence>
+		<xsd:element name="OperationData" type="tns:Operation" maxOccurs="unbounded"  minOccurs="0" />
+	</xsd:sequence>
+	<xsd:attribute name="numero" type="xsd:string" use="required"/>
+	<xsd:attribute name="acctStatus" type="xsd:string" use="required"/>
+	<xsd:attribute name="isDebitsBlocked" type="xsd:string" use="required"/>
+	<xsd:attribute name="ledgerBalDate" type="xsd:string" use="required"/>
+	<xsd:attribute name="ledgerBal" type="xsd:long" use="required"/>
+	<xsd:attribute name="realBal" type="xsd:long" use="required"/>
+	<xsd:attribute name="availBal" type="xsd:long" use="required"/>
+	<xsd:attribute name="facilities" type="xsd:long" use="required"/>
+	<xsd:attribute name="holds" type="xsd:long" use="required"/>
+     </xsd:complexType>	
+     
+     
+      
+     <xsd:complexType name="Account">
+	<xsd:attribute name="numero" type="xsd:string" use="required"/>
+	<xsd:attribute name="acctStatus" type="xsd:string" use="required"/>
+	<xsd:attribute name="isDebitsBlocked" type="xsd:string" use="required"/>
+	<xsd:attribute name="debitsBlkReason" type="xsd:string" use="required"/>
+	<xsd:attribute name="bilanComptable" type="xsd:string" use="required"/>
+	<xsd:attribute name="customerIdtf" type="xsd:string" use="required"/>
+	<xsd:attribute name="ledgerBalDate" type="xsd:string" use="required"/>
+	<xsd:attribute name="ledgerBal" type="xsd:long" use="required"/>
+	<xsd:attribute name="realBal" type="xsd:long" use="required"/>
+	<xsd:attribute name="availBal" type="xsd:long" use="required"/>
+	<xsd:attribute name="facilities" type="xsd:long" use="required"/>
+	<xsd:attribute name="holds" type="xsd:long" use="required"/>
+     </xsd:complexType>	
+     
+     <xsd:complexType name="Customer"> 
+	<xsd:attribute name="idtfcl"          type="xsd:string"     use="required"/>
+	<xsd:attribute name="titre"           type="xsd:string"     use="required"/>
+	<xsd:attribute name="designation"     type="xsd:string"     use="required"/>
+	<xsd:attribute name="adresse1"        type="xsd:string"     use="required"/>
+	<xsd:attribute name="adresse2"        type="xsd:string"     use="required"/>
+	<xsd:attribute name="codeVille"       type="xsd:string"     use="required"/>
+	<xsd:attribute name="nomVille"        type="xsd:string"     use="required"/>
+	<xsd:attribute name="paysAdresse"     type="xsd:string"     use="required"/>
+	<xsd:attribute name="codePostal"      type="xsd:string"     use="required"/>
+	<xsd:attribute name="type"            type="xsd:string"     use="required"/>
+	<xsd:attribute name="categorie"       type="xsd:string"     use="required"/>
+	<xsd:attribute name="dateNaissance"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="nationalite"     type="xsd:string"     use="required"/>
+	<xsd:attribute name="agentEconomique" type="xsd:string"     use="required"/>
+	<xsd:attribute name="formeJuridique"  type="xsd:string"     use="required"/>
+	<xsd:attribute name="marche"          type="xsd:string"     use="required"/>
+	<xsd:attribute name="segment"         type="xsd:string"     use="required"/>
+	<xsd:attribute name="sexe"            type="xsd:string"     use="required"/>
+	<xsd:attribute name="niveauService"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="typeIdentCi"     type="xsd:string"     use="required"/>
+	<xsd:attribute name="numeroIdentCi"   type="xsd:string"     use="required"/>
+	<xsd:attribute name="statut"          type="xsd:string"     use="required"/>
+	<xsd:attribute name="dateStatut"      type="xsd:string"     use="required"/>
+   </xsd:complexType>	
+   
+   <xsd:complexType name="SimpleAccount">
+	<xsd:attribute name="numero" type="xsd:string" use="required"/>
+	<xsd:attribute name="acctStatus" type="xsd:string" use="required"/>
+	<xsd:attribute name="codeBilan" type="xsd:string" use="required"/>
+	<xsd:attribute name="bilanDescription" type="xsd:string" use="required"/>
+	<xsd:attribute name="realBal" type="xsd:long" use="required"/>
+	<xsd:attribute name="availBal" type="xsd:long" use="required"/>
+   </xsd:complexType>				
+    
+
+	
+</xsd:schema>
+

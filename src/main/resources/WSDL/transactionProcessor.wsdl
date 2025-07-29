@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="UTF-8"?><!--File AttijariwafaTransaction.wsdl, application IntrdUpiSoapV2App, static library UPI Model Lib--><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="AttijariwafaTransactionWS" targetNamespace="urn:schemas-attijariwafa-com:transaction-data:TransactionProcessor" xmlns:data="urn:schemas-attijariwafa-com:transaction-data" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:schemas-attijariwafa-com:transaction-data:TransactionProcessor" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  
+   <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:schemas-attijariwafa-com:transaction-data" xmlns:Q1="urn:schemas-attijariwafa-com:transaction-data" xmlns:mrm="urn:schemas-attijariwafa-com:transaction-data:TransactionProcessor">
+      <xsd:element name="reservationReq" type="Q1:ReservationReq"/>
+      <xsd:element name="reservationResp" type="Q1:ReservationResp"/>
+      <xsd:element name="operationAdviceReq" type="Q1:OperationAdviceReq"/>
+      <xsd:element name="operationAdviceResp" type="Q1:OperationAdviceResp"/>
+      <xsd:element name="operationCancelReq" type="Q1:OperationCancelReq"/>
+      <xsd:element name="operationCancelResp" type="Q1:OperationCancelResp"/>
+      <xsd:element name="operationUpdateReq" type="Q1:OperationUpdateReq"/>
+      <xsd:element name="operationUpdateResp" type="Q1:OperationUpdateResp"/>
+      <xsd:element name="operationExecReq" type="Q1:OperationExecReq"/>
+      <xsd:element name="operationExecResp" type="Q1:OperationExecResp"/>
+      <xsd:element name="transactionExecReq" type="Q1:TransactionExecReq"/>
+      <xsd:element name="transactionExecResp" type="Q1:TransactionExecResp"/>
+      <xsd:element name="fundsTransferValidateReq" type="Q1:FundsTransferValidateReq"/>
+      <xsd:element name="fundsTransferValidateResp" type="Q1:FundsTransferValidateResp"/>
+      <xsd:element name="fundsTransferExecuteReq" type="Q1:FundsTransferExecuteReq"/>
+      <xsd:element name="fundsTransferExecuteResp" type="Q1:FundsTransferExecuteResp"/>
+      <xsd:element name="fundsTransferCancelReq" type="Q1:FundsTransferCancelReq"/>
+      <xsd:element name="fundsTransferCancelResp" type="Q1:FundsTransferCancelResp"/>
+      <xsd:element name="accountBalanceReq" type="Q1:AccountBalanceReq"/>
+      <xsd:element name="accountBalanceResp" type="Q1:AccountBalanceResp"/>
+      <xsd:element name="queryCustomerAccountReq" type="Q1:QueryCustomerAccountReq"/>
+      <xsd:element name="queryCustomerAccountResp" type="Q1:QueryCustomerAccountResp"/>
+      <xsd:element name="customerInfoReq" type="Q1:CustomerInfoReq"/>
+      <xsd:element name="customerInfoResp" type="Q1:CustomerInfoResp"/>
+      <xsd:element name="accountStatementReq" type="Q1:AccountStatementReq"/>
+      <xsd:element name="accountStatementResp" type="Q1:AccountStatementResp"/>
+      <xsd:element name="customerSummaryReq" type="Q1:CustomerSummaryReq"/>
+      <xsd:element name="customerSummaryResp" type="Q1:CustomerSummaryResp"/>
+      <xsd:element name="customerAccountsReq" type="Q1:CustomerAccountsReq"/>
+      <xsd:element name="customerAccountsResp" type="Q1:CustomerAccountsResp"/>
+      <xsd:element name="accountStatusReq" type="Q1:AccountStatusReq"/>
+      <xsd:element name="accountStatusResp" type="Q1:AccountStatusResp"/>
+      <xsd:element name="accountEventReq" type="Q1:AccountEventReq"/>
+      <xsd:element name="accountEventResp" type="Q1:AccountEventResp"/>
+      <xsd:element name="accountOpeningReq" type="Q1:AccountOpeningReq"/>
+      <xsd:element name="accountOpeningResp" type="Q1:AccountOpeningResp"/>
+      <xsd:complexType name="AccountBalanceReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="AcctBalReq">
+            <xsd:complexType>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountBalanceResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="AcctBalResp">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" name="Account" type="Q1:AccountAndOperations"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QueryCustomerAccountReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="QueryCustAcctReq">
+            <xsd:complexType>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QueryCustomerAccountResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="QueryCustAcctResp">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="1" minOccurs="1" name="Account" type="Q1:Account"/>
+                <xsd:element maxOccurs="1" minOccurs="0" name="Customer" type="Q1:Customer"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerInfoReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="CustInfoReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="1" minOccurs="1" name="Customer" type="Q1:Customer"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerInfoResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountEventReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="AcctEvtReq">
+            <xsd:complexType>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+              <xsd:attribute name="sitexType" type="xsd:string" use="required"/>
+              <xsd:attribute name="action" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountEventResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountOpeningReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="AcctOpenReq">
+            <xsd:complexType>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+              <xsd:attribute name="customerIdtf" type="xsd:string"/>
+              <xsd:attribute name="openingDate" type="xsd:string" use="required"/>
+              <xsd:attribute name="bilan" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountOpeningResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReservationReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="ReserveReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="OperationData" type="Q1:Operation"/>
+                <xsd:element name="OperationContext" type="Q1:NameValueList"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReservationResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="ReserveResp" type="Q1:StandardResp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationAdviceReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="AdviceReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="OperationData" type="Q1:Operation"/>
+                <xsd:element name="OperationContext" type="Q1:NameValueList"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationAdviceResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="AdviceResp" type="Q1:StandardResp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationCancelReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="CancelReq">
+            <xsd:complexType>
+              <xsd:attribute name="operRef" type="xsd:string" use="required"/>
+              <xsd:attribute name="operStatus" type="Q1:StatusEnum" use="required"/>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationCancelResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="CancelResp" type="Q1:StandardResp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationUpdateReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="OperUpdReq">
+            <xsd:complexType>
+              <xsd:attribute name="ruleCode" type="xsd:string" use="required"/>
+              <xsd:attribute name="operRef" type="xsd:string" use="required"/>
+              <xsd:attribute name="operStatus" type="Q1:StatusEnum" use="required"/>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+              <xsd:attribute name="amount" type="xsd:long" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationUpdateResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="OperUpdResp" type="Q1:StandardResp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationExecReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="OperExeReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="OperationData" type="Q1:RuledOperation"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OperationExecResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="OperExeResp" type="Q1:StandardResp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TransactionExecReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="TrxExeReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" name="OperationData" type="Q1:RuledOperation"/>
+              </xsd:sequence>
+              <xsd:attribute name="trxType" type="xsd:string" use="required"/>
+              <xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TransactionExecResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FundsTransferValidateReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="FtValReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="1" minOccurs="1" name="Debit" type="Q1:Operation"/>
+                <xsd:element name="Credits">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element maxOccurs="unbounded" minOccurs="1" name="Credit" type="Q1:Operation"/>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+              <xsd:attribute name="trxType" type="xsd:string" use="required"/>
+              <xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+              <xsd:attribute name="accepterDepassement" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FundsTransferValidateResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FundsTransferExecuteReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="FtExeReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" name="OperationData" type="Q1:RuledOperation"/>
+              </xsd:sequence>
+              <xsd:attribute name="trxType" type="xsd:string" use="required"/>
+              <xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FundsTransferExecuteResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FundsTransferCancelReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="FtCanReq">
+            <xsd:complexType>
+              <xsd:attribute name="trxType" type="xsd:string" use="required"/>
+              <xsd:attribute name="trxRef" type="xsd:string" use="required"/>
+              <xsd:attribute name="operRef" type="xsd:string" use="required"/>
+              <xsd:attribute name="operStatus" type="Q1:StatusEnum" use="required"/>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FundsTransferCancelResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="RuleEnum">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="RESER"/>
+          <xsd:enumeration value="RESAD"/>
+          <xsd:enumeration value="OPADV"/>
+          <xsd:enumeration value="OPUPD"/>
+          <xsd:enumeration value="OPCAN"/>
+          <xsd:enumeration value="OPPAY"/>
+          <xsd:enumeration value="OPCHK"/>
+          <xsd:enumeration value="OPTRA"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="AccountStatementReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="AcctStmReq">
+            <xsd:complexType>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+              <xsd:attribute name="typeRecherche" type="xsd:string" use="required"/>
+              <xsd:attribute name="nbLastOperations" type="xsd:int" use="required"/>
+              <xsd:attribute name="nbJoursHistorique" type="xsd:int" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountStatementResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="AcctStmResp">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" name="Account" type="Q1:AccountAndOperations"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerSummaryReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="CustSumReq">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" name="Account" type="xsd:string"/>
+              </xsd:sequence>
+              <xsd:attribute name="customerId" type="xsd:string" use="required"/>
+              <xsd:attribute name="nbLastOperations" type="xsd:int" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerSummaryResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="CustSumResp">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" name="Account" type="Q1:AccountAndOperations"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerAccountsReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="CustAcctsReq">
+            <xsd:complexType>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+              <xsd:attribute name="typeRestitution" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerAccountsResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="CustAcctsResp">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="Account" type="Q1:SimpleAccount"/>
+              </xsd:sequence>
+              <xsd:attribute name="idtfcl" type="xsd:string" use="required"/>
+              <xsd:attribute name="titre" type="xsd:string" use="required"/>
+              <xsd:attribute name="designation" type="xsd:string" use="required"/>
+              <xsd:attribute name="categorie" type="xsd:string" use="required"/>
+              <xsd:attribute name="marche" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountStatusReq">
+        <xsd:sequence>
+          <xsd:element name="ReqHeader" type="Q1:RequestHeader"/>
+          <xsd:element name="AcctStaReq">
+            <xsd:complexType>
+              <xsd:attribute name="account" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountStatusResp">
+        <xsd:sequence>
+          <xsd:element name="RespHeader" type="Q1:ResponseHeader"/>
+          <xsd:element name="AcctStaResp">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" name="Account" type="Q1:AccountAndOperations"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestHeader">
+        <xsd:attribute name="canal" type="xsd:string" use="required"/>
+        <xsd:attribute name="user" type="xsd:string" use="required"/>
+        <xsd:attribute name="password" type="xsd:string" use="required"/>
+        <xsd:attribute name="signature" type="xsd:string" use="required"/>
+        <xsd:attribute name="correlationId" type="xsd:string" use="required"/>
+        <xsd:attribute name="ts" type="xsd:string" use="required"/>
+        <xsd:attribute name="replyFormat" type="Q1:ReplyFormatEnum" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseHeader">
+        <xsd:sequence/>
+        <xsd:attribute name="canal" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="StandardResp">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Account" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="NewAvailBal" type="xsd:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="StatusEnum">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="OCI"/>
+          <xsd:enumeration value="OBP"/>
+          <xsd:enumeration value="OSD"/>
+          <xsd:enumeration value="OAV"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ReplyFormatEnum">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="FULL"/>
+          <xsd:enumeration value="NONE"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="NameValueList">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Detail" type="Q1:Detail"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Detail">
+        <xsd:simpleContent>
+          <xsd:extension base="xsd:string">
+            <xsd:attribute name="key" type="xsd:string" use="required"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="Operation">
+        <xsd:attribute name="operRef" type="xsd:string" use="required"/>
+        <xsd:attribute name="canal" type="xsd:string" use="required"/>
+        <xsd:attribute name="operType" type="xsd:string" use="required"/>
+        <xsd:attribute name="operStatus" type="Q1:StatusEnum" use="required"/>
+        <xsd:attribute name="account" type="xsd:string" use="required"/>
+        <xsd:attribute name="amount" type="xsd:long" use="required"/>
+        <xsd:attribute name="sens" type="xsd:string" use="required"/>
+        <xsd:attribute name="operDate" type="xsd:string" use="required"/>
+        <xsd:attribute name="valueDate" type="xsd:string" use="required"/>
+        <xsd:attribute name="endDate" type="xsd:string" use="required"/>
+        <xsd:attribute name="operLib" type="xsd:string" use="required"/>
+        <xsd:attribute name="operLib2" type="xsd:string" use="required"/>
+        <xsd:attribute name="operLib3" type="xsd:string" use="required"/>
+        <xsd:attribute name="libCourt" type="xsd:string" use="required"/>
+        <xsd:attribute name="recorded" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="RuledOperation">
+        <xsd:attribute name="ruleCode" type="xsd:string" use="required"/>
+        <xsd:attribute name="operRef" type="xsd:string" use="required"/>
+        <xsd:attribute name="canal" type="xsd:string" use="required"/>
+        <xsd:attribute name="operType" type="xsd:string" use="required"/>
+        <xsd:attribute name="operStatus" type="Q1:StatusEnum" use="required"/>
+        <xsd:attribute name="account" type="xsd:string" use="required"/>
+        <xsd:attribute name="amount" type="xsd:long" use="required"/>
+        <xsd:attribute name="sens" type="xsd:string" use="required"/>
+        <xsd:attribute name="operDate" type="xsd:string" use="required"/>
+        <xsd:attribute name="valueDate" type="xsd:string" use="required"/>
+        <xsd:attribute name="endDate" type="xsd:string" use="required"/>
+        <xsd:attribute name="operLib" type="xsd:string" use="required"/>
+        <xsd:attribute name="operLib2" type="xsd:string" use="required"/>
+        <xsd:attribute name="operLib3" type="xsd:string" use="required"/>
+        <xsd:attribute name="libCourt" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="AccountAndOperations">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="OperationData" type="Q1:Operation"/>
+        </xsd:sequence>
+        <xsd:attribute name="numero" type="xsd:string" use="required"/>
+        <xsd:attribute name="acctStatus" type="xsd:string" use="required"/>
+        <xsd:attribute name="isDebitsBlocked" type="xsd:string" use="required"/>
+        <xsd:attribute name="ledgerBal" type="xsd:long" use="required"/>
+        <xsd:attribute name="realBal" type="xsd:long" use="required"/>
+        <xsd:attribute name="availBal" type="xsd:long" use="required"/>
+        <xsd:attribute name="facilities" type="xsd:long" use="required"/>
+        <xsd:attribute name="holds" type="xsd:long" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="Account">
+        <xsd:attribute name="numero" type="xsd:string" use="required"/>
+        <xsd:attribute name="acctStatus" type="xsd:string" use="required"/>
+        <xsd:attribute name="isDebitsBlocked" type="xsd:string" use="required"/>
+        <xsd:attribute name="debitsBlkReason" type="xsd:string" use="required"/>
+        <xsd:attribute name="bilanComptable" type="xsd:string" use="required"/>
+        <xsd:attribute name="customerIdtf" type="xsd:string" use="required"/>
+        <xsd:attribute name="ledgerBalDate" type="xsd:string" use="required"/>
+        <xsd:attribute name="ledgerBal" type="xsd:long" use="required"/>
+        <xsd:attribute name="realBal" type="xsd:long" use="required"/>
+        <xsd:attribute name="availBal" type="xsd:long" use="required"/>
+        <xsd:attribute name="facilities" type="xsd:long" use="required"/>
+        <xsd:attribute name="holds" type="xsd:long" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="Customer">
+        <xsd:attribute name="idtfcl" type="xsd:string" use="required"/>
+        <xsd:attribute name="titre" type="xsd:string" use="required"/>
+        <xsd:attribute name="designation" type="xsd:string" use="required"/>
+        <xsd:attribute name="adresse1" type="xsd:string" use="required"/>
+        <xsd:attribute name="adresse2" type="xsd:string" use="required"/>
+        <xsd:attribute name="codeVille" type="xsd:string" use="required"/>
+        <xsd:attribute name="nomVille" type="xsd:string" use="required"/>
+        <xsd:attribute name="paysAdresse" type="xsd:string" use="required"/>
+        <xsd:attribute name="codePostal" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string" use="required"/>
+        <xsd:attribute name="categorie" type="xsd:string" use="required"/>
+        <xsd:attribute name="dateNaissance" type="xsd:string" use="required"/>
+        <xsd:attribute name="nationalite" type="xsd:string" use="required"/>
+        <xsd:attribute name="agentEconomique" type="xsd:string" use="required"/>
+        <xsd:attribute name="formeJuridique" type="xsd:string" use="required"/>
+        <xsd:attribute name="marche" type="xsd:string" use="required"/>
+        <xsd:attribute name="segment" type="xsd:string" use="required"/>
+        <xsd:attribute name="sexe" type="xsd:string" use="required"/>
+        <xsd:attribute name="niveauService" type="xsd:string" use="required"/>
+        <xsd:attribute name="typeIdentCi" type="xsd:string" use="required"/>
+        <xsd:attribute name="numeroIdentCi" type="xsd:string" use="required"/>
+        <xsd:attribute name="statut" type="xsd:string" use="required"/>
+        <xsd:attribute name="dateStatut" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="SimpleAccount">
+        <xsd:attribute name="numero" type="xsd:string" use="required"/>
+        <xsd:attribute name="acctStatus" type="xsd:string" use="required"/>
+        <xsd:attribute name="codeBilan" type="xsd:string" use="required"/>
+        <xsd:attribute name="bilanDescription" type="xsd:string" use="required"/>
+        <xsd:attribute name="realBal" type="xsd:long" use="required"/>
+        <xsd:attribute name="availBal" type="xsd:long" use="required"/>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+   
+   
+   
+   <wsdl:message name="reservationMessageIn">
+      <wsdl:part element="data:reservationReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="reservationMessageOut">
+      <wsdl:part element="data:reservationResp" name="result"/>
+   </wsdl:message>
+  
+   <wsdl:message name="operationAdviceMessageIn">
+      <wsdl:part element="data:operationAdviceReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="operationAdviceMessageOut">
+      <wsdl:part element="data:operationAdviceResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="operationCancelMessageIn">
+      <wsdl:part element="data:operationCancelReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="operationCancelMessageOut">
+      <wsdl:part element="data:operationCancelResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="operationUpdateMessageIn">
+      <wsdl:part element="data:operationUpdateReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="operationUpdateMessageOut">
+      <wsdl:part element="data:operationUpdateResp" name="result"/>
+   </wsdl:message>
+   
+      
+   <wsdl:message name="operationExecMessageIn">
+      <wsdl:part element="data:operationExecReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="operationExecMessageOut">
+      <wsdl:part element="data:operationExecResp" name="result"/>
+   </wsdl:message>
+   
+    
+   <wsdl:message name="transactionExecMessageIn">
+      <wsdl:part element="data:transactionExecReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="transactionExecMessageOut">
+      <wsdl:part element="data:transactionExecResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="fundsTransferValidateMessageIn">
+      <wsdl:part element="data:fundsTransferValidateReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="fundsTransferValidateMessageOut">
+      <wsdl:part element="data:fundsTransferValidateResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="fundsTransferExecuteMessageIn">
+      <wsdl:part element="data:fundsTransferExecuteReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="fundsTransferExecuteMessageOut">
+      <wsdl:part element="data:fundsTransferExecuteResp" name="result"/>
+   </wsdl:message>
+  
+   <wsdl:message name="fundsTransferCancelMessageIn">
+      <wsdl:part element="data:fundsTransferCancelReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="fundsTransferCancelMessageOut">
+      <wsdl:part element="data:fundsTransferCancelResp" name="result"/>
+   </wsdl:message>
+   
+   
+   
+   <wsdl:message name="accountBalanceMessageIn">
+      <wsdl:part element="data:accountBalanceReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="accountBalanceMessageOut">
+      <wsdl:part element="data:accountBalanceResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="queryCustomerAccountMessageIn">
+      <wsdl:part element="data:queryCustomerAccountReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="queryCustomerAccountMessageOut">
+      <wsdl:part element="data:queryCustomerAccountResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="customerInfoMessageIn">
+      <wsdl:part element="data:customerInfoReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="customerInfoMessageOut">
+      <wsdl:part element="data:customerInfoResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="accountStatementMessageIn">
+      <wsdl:part element="data:accountStatementReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="accountStatementMessageOut">
+      <wsdl:part element="data:accountStatementResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="customerSummaryMessageIn">
+      <wsdl:part element="data:customerSummaryReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="customerSummaryMessageOut">
+      <wsdl:part element="data:customerSummaryResp" name="result"/>
+   </wsdl:message>
+   
+    <wsdl:message name="customerAccountsMessageIn">
+      <wsdl:part element="data:customerAccountsReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="customerAccountsMessageOut">
+      <wsdl:part element="data:customerAccountsResp" name="result"/>
+   </wsdl:message>
+   
+   <wsdl:message name="accountStatusMessageIn">
+      <wsdl:part element="data:accountStatusReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="accountStatusMessageOut">
+      <wsdl:part element="data:accountStatusResp" name="result"/>
+   </wsdl:message>   
+   
+    
+ 
+    
+ 
+    
+    
+     
+   
+   
+     
+   <wsdl:message name="accountOpeningMessageIn">
+      <wsdl:part element="data:accountOpeningReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="accountOpeningMessageOut">
+      <wsdl:part element="data:accountOpeningResp" name="result"/>
+   </wsdl:message>   
+    
+   <wsdl:message name="accountEventMessageIn">
+      <wsdl:part element="data:accountEventReq" name="input"/>
+   </wsdl:message>
+   <wsdl:message name="accountEventMessageOut">
+      <wsdl:part element="data:accountEventResp" name="result"/>
+   </wsdl:message>  
+   
+    
+      
+   
+   
+   
+   
+  
+   
+   
+   
+   
+   <wsdl:portType name="ITransactionProcessor">
+      <wsdl:operation name="reservation">
+         <wsdl:input message="tns:reservationMessageIn" name="reservationIn"/>
+         <wsdl:output message="tns:reservationMessageOut" name="reservationOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="operationAdvice">
+         <wsdl:input message="tns:operationAdviceMessageIn" name="operationAdviceIn"/>
+         <wsdl:output message="tns:operationAdviceMessageOut" name="operationAdviceOut"/>
+      </wsdl:operation>
+       <wsdl:operation name="operationCancel">
+         <wsdl:input message="tns:operationCancelMessageIn" name="operationCancelIn"/>
+         <wsdl:output message="tns:operationCancelMessageOut" name="operationCancelOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="operationUpdate">
+         <wsdl:input message="tns:operationUpdateMessageIn" name="operationUpdateIn"/>
+         <wsdl:output message="tns:operationUpdateMessageOut" name="operationUpdateOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="operationExec">
+         <wsdl:input message="tns:operationExecMessageIn" name="operationExecIn"/>
+         <wsdl:output message="tns:operationExecMessageOut" name="operationExecOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="transactionExec">
+         <wsdl:input message="tns:transactionExecMessageIn" name="transactionExecIn"/>
+         <wsdl:output message="tns:transactionExecMessageOut" name="transactionExecOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="fundsTransferValidate">
+         <wsdl:input message="tns:fundsTransferValidateMessageIn" name="fundsTransferValidateIn"/>
+         <wsdl:output message="tns:fundsTransferValidateMessageOut" name="fundsTransferValidateOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="fundsTransferExecute">
+         <wsdl:input message="tns:fundsTransferExecuteMessageIn" name="fundsTransferExecuteIn"/>
+         <wsdl:output message="tns:fundsTransferExecuteMessageOut" name="fundsTransferExecuteOut"/>
+      </wsdl:operation>
+       <wsdl:operation name="fundsTransferCancel">
+         <wsdl:input message="tns:fundsTransferCancelMessageIn" name="fundsTransferCancelIn"/>
+         <wsdl:output message="tns:fundsTransferCancelMessageOut" name="fundsTransferCancelOut"/>
+      </wsdl:operation>      
+      <wsdl:operation name="accountBalance">
+         <wsdl:input message="tns:accountBalanceMessageIn" name="accountBalanceIn"/>
+         <wsdl:output message="tns:accountBalanceMessageOut" name="accountBalanceOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="queryCustomerAccount">
+         <wsdl:input message="tns:queryCustomerAccountMessageIn" name="queryCustomerAccountIn"/>
+         <wsdl:output message="tns:queryCustomerAccountMessageOut" name="queryCustomerAccountOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="customerInfo">
+         <wsdl:input message="tns:customerInfoMessageIn" name="customerInfoIn"/>
+         <wsdl:output message="tns:customerInfoMessageOut" name="customerInfoOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatement">
+         <wsdl:input message="tns:accountStatementMessageIn" name="accountStatementIn"/>
+         <wsdl:output message="tns:accountStatementMessageOut" name="accountStatementOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="customerSummary">
+         <wsdl:input message="tns:customerSummaryMessageIn" name="customerSummaryIn"/>
+         <wsdl:output message="tns:customerSummaryMessageOut" name="customerSummaryOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="customerAccounts">
+         <wsdl:input message="tns:customerAccountsMessageIn" name="customerAccountsIn"/>
+         <wsdl:output message="tns:customerAccountsMessageOut" name="customerAccountsOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatus">
+         <wsdl:input message="tns:accountStatusMessageIn" name="accountStatusIn"/>
+         <wsdl:output message="tns:accountStatusMessageOut" name="accountStatusOut"/>
+      </wsdl:operation>
+     
+      
+      <wsdl:operation name="accountOpening">
+         <wsdl:input message="tns:accountOpeningMessageIn" name="accountOpeningIn"/>
+         <wsdl:output message="tns:accountOpeningMessageOut" name="accountOpeningOut"/>
+      </wsdl:operation>
+      <wsdl:operation name="accountEvent">
+         <wsdl:input message="tns:accountEventMessageIn" name="accountEventIn"/>
+         <wsdl:output message="tns:accountEventMessageOut" name="accountEventOut"/>
+      </wsdl:operation>
+      
+      
+      
+      
+   
+   
+   
+   
+   
+  
+   
+   </wsdl:portType>
+   
+   
+   
+   <wsdl:binding name="ITransactionProcessor" type="tns:ITransactionProcessor">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="reservation">
+         <soap:operation soapAction="reservation" style="document"/>
+         <wsdl:input name="reservationIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="reservationOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="operationAdvice">
+         <soap:operation soapAction="operationAdvice" style="document"/>
+         <wsdl:input name="operationAdviceIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationAdviceOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+       <wsdl:operation name="operationCancel">
+         <soap:operation soapAction="operationCancel" style="document"/>
+         <wsdl:input name="operationCancelIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationCancelOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      <wsdl:operation name="operationUpdate">
+         <soap:operation soapAction="operationUpdate" style="document"/>
+         <wsdl:input name="operationUpdateIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationUpdateOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      
+      
+      
+       <wsdl:operation name="operationExec">
+         <soap:operation soapAction="operationExec" style="document"/>
+         <wsdl:input name="operationExecIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="operationExecOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="transactionExec">
+         <soap:operation soapAction="transactionExec" style="document"/>
+         <wsdl:input name="transactionExecIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="transactionExecOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="fundsTransferValidate">
+         <soap:operation soapAction="fundsTransferValidate" style="document"/>
+         <wsdl:input name="fundsTransferValidateIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="fundsTransferValidateOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="fundsTransferExecute">
+         <soap:operation soapAction="fundsTransferExecute" style="document"/>
+         <wsdl:input name="fundsTransferExecuteIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="fundsTransferExecuteOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+       <wsdl:operation name="fundsTransferCancel">
+         <soap:operation soapAction="fundsTransferCancel" style="document"/>
+         <wsdl:input name="fundsTransferCancelIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="fundsTransferCancelOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      <wsdl:operation name="accountBalance">
+         <soap:operation soapAction="accountBalance" style="document"/>
+         <wsdl:input name="accountBalanceIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountBalanceOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+       <wsdl:operation name="queryCustomerAccount">
+         <soap:operation soapAction="queryCustomerAccount" style="document"/>
+         <wsdl:input name="queryCustomerAccountIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="queryCustomerAccountOut">
+              <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="customerInfo">
+         <soap:operation soapAction="customerInfo" style="document"/>
+         <wsdl:input name="customerInfoIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="customerInfoOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatement">
+         <soap:operation soapAction="accountStatement" style="document"/>
+         <wsdl:input name="accountStatementIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountStatementOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="customerSummary">
+         <soap:operation soapAction="customerSummary" style="document"/>
+         <wsdl:input name="customerSummaryIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="customerSummaryOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="customerAccounts">
+         <soap:operation soapAction="customerAccounts" style="document"/>
+         <wsdl:input name="customerAccountsIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="customerAccountsOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="accountStatus">
+         <soap:operation soapAction="accountStatus" style="document"/>
+         <wsdl:input name="accountStatusIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountStatusOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      
+      
+     <wsdl:operation name="accountOpening">
+         <soap:operation soapAction="accountOpening" style="document"/>
+         <wsdl:input name="accountOpeningIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountOpeningOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="accountEvent">
+         <soap:operation soapAction="accountEvent" style="document"/>
+         <wsdl:input name="accountEventIn">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="accountEventOut">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+    
+      
+      
+   </wsdl:binding>
+   
+   
+  
+   
+   
+   
+   
+   <wsdl:service name="TransactionProcessor">
+      <wsdl:documentation>Attijariwafa Position Web Services</wsdl:documentation>
+      <wsdl:port binding="tns:ITransactionProcessor" name="portXML">
+         <soap:address location="http://172.31.7.246:7804/position/v2/transactionProcessor"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

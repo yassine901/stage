@@ -1,0 +1,150 @@
+
+package Models;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Classe Java pour AccountStatusReq complex type.</p>
+ * 
+ * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.</p>
+ * 
+ * <pre>{@code
+ * <complexType name="AccountStatusReq">
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element name="ReqHeader" type="{urn:schemas-attijariwafa-com:transaction-data}RequestHeader"/>
+ *         <element name="AcctStaReq">
+ *           <complexType>
+ *             <complexContent>
+ *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 <attribute name="account" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *               </restriction>
+ *             </complexContent>
+ *           </complexType>
+ *         </element>
+ *       </sequence>
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "AccountStatusReq", propOrder = {
+    "reqHeader",
+    "acctStaReq"
+})
+public class AccountStatusReq {
+
+    @XmlElement(name = "ReqHeader", required = true)
+    protected RequestHeader reqHeader;
+    @XmlElement(name = "AcctStaReq", required = true)
+    protected AccountStatusReq.AcctStaReq acctStaReq;
+
+    /**
+     * Obtient la valeur de la propri�t� reqHeader.
+     * 
+     * @return
+     *     possible object is
+     *     {@link RequestHeader }
+     *     
+     */
+    public RequestHeader getReqHeader() {
+        return reqHeader;
+    }
+
+    /**
+     * D�finit la valeur de la propri�t� reqHeader.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link RequestHeader }
+     *     
+     */
+    public void setReqHeader(RequestHeader value) {
+        this.reqHeader = value;
+    }
+
+    /**
+     * Obtient la valeur de la propri�t� acctStaReq.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AccountStatusReq.AcctStaReq }
+     *     
+     */
+    public AccountStatusReq.AcctStaReq getAcctStaReq() {
+        return acctStaReq;
+    }
+
+    /**
+     * D�finit la valeur de la propri�t� acctStaReq.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link AccountStatusReq.AcctStaReq }
+     *     
+     */
+    public void setAcctStaReq(AccountStatusReq.AcctStaReq value) {
+        this.acctStaReq = value;
+    }
+
+
+    /**
+     * <p>Classe Java pour anonymous complex type.</p>
+     * 
+     * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.</p>
+     * 
+     * <pre>{@code
+     * <complexType>
+     *   <complexContent>
+     *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       <attribute name="account" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+     *     </restriction>
+     *   </complexContent>
+     * </complexType>
+     * }</pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "")
+    public static class AcctStaReq {
+
+        @XmlAttribute(name = "account", required = true)
+        protected String account;
+
+        /**
+         * Obtient la valeur de la propri�t� account.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getAccount() {
+            return account;
+        }
+
+        /**
+         * D�finit la valeur de la propri�t� account.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setAccount(String value) {
+            this.account = value;
+        }
+
+    }
+
+}
