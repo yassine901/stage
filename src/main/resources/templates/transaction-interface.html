@@ -1375,7 +1375,7 @@
                         <div class="form-group">
                             <label class="form-label">URL Endpoint</label>
                             <input type="text" id="endpoint" class="form-input"
-                                   th:value="${defaultEndpoint ?: 'http://localhost:52343/position/v2/transactionProcessor'}"
+                                   th:value="${defaultEndpoint ?: 'http://localhost:8080/position/v2/transactionProcessor'}"
                                    placeholder="https://api.example.com/v2/transactionProcessor">
                         </div>
                         <div class="form-group">
@@ -1797,7 +1797,7 @@
 <script>
     // Configuration et variables globales
     window.appConfig = {
-        defaultEndpoint: 'http://localhost:52343/position/v2/transactionProcessor',
+        defaultEndpoint: 'http://localhost:8080/position/v2/transactionProcessor',
         apiBase: 'http://localhost:8080',
         environment: 'DEVELOPMENT',
         bankName: 'Attijariwafa Bank',
