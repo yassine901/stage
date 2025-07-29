@@ -554,4 +554,24 @@ public class BankingSoapController {
 
         return ResponseEntity.ok("Validation disponible via le flux principal");
     }
+
+    @PostMapping(value = "/balanceInquiry", consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE}, produces = {MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<String> balanceInquiry(@RequestBody String soapRequest) {
+        // Simple XML parsing to extract account number (for demonstration)
+        String account = extractValue(soapRequest, "<AccountData account=\"", "\"");
+        String balance = "100000"; // Dummy balance
+        String response =
+                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
+                "<soap:Body>" +
+                "<balanceInquiryRes xmlns=\"urn:schemas-attijariwafa-com:balance-data\">" +
+                "<ResHeader returnCode=\"0\" errorCode=\"00\" message=\"SUCCESS\"/>" +
+                "<BalanceRes>" +
+                "<AccountData account=\"" + account + "\" balance=\"" + balance + "\"/>" +
+                "</BalanceRes>" +
+                "</balanceInquiryRes>" +
+                "</soap:Body>" +
+                "</soap:Envelope>";
+        return ResponseEntity.ok(response);
+    }
 }
