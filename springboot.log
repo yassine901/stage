@@ -35,27 +35,27 @@
 
  :: Spring Boot ::                (v3.5.3)
 
-2025-07-31T08:48:08.868Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] c.s.r.ReservationSystemApplication       : Starting ReservationSystemApplication using Java 21.0.7 with PID 3095 (/workspace/target/classes started by ubuntu in /workspace)
-2025-07-31T08:48:08.870Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] c.s.r.ReservationSystemApplication       : Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-07-31T08:48:08.870Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] c.s.r.ReservationSystemApplication       : No active profile set, falling back to 1 default profile: "default"
-2025-07-31T08:48:08.899Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-07-31T08:48:08.899Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-07-31T08:48:09.204Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-31T08:48:09.254Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 4 JPA repository interfaces.
-2025-07-31T08:48:09.748Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-07-31T08:48:09.759Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-31T08:48:09.759Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-07-31T08:48:09.781Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-31T08:48:09.781Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 882 ms
-2025-07-31T08:48:09.910Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-31T08:48:09.939Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
-2025-07-31T08:48:09.959Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-31T08:48:10.095Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-31T08:48:10.111Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-31T08:48:10.206Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:banque user=SA
-2025-07-31T08:48:10.207Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-31T08:48:10.220Z  WARN 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-31T08:48:10.230Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-07-31T09:06:34.570Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] c.s.r.ReservationSystemApplication       : Starting ReservationSystemApplication using Java 21.0.7 with PID 6940 (/workspace/target/classes started by ubuntu in /workspace)
+2025-07-31T09:06:34.572Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] c.s.r.ReservationSystemApplication       : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-31T09:06:34.572Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] c.s.r.ReservationSystemApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-07-31T09:06:34.599Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-31T09:06:34.599Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-31T09:06:34.882Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-31T09:06:34.922Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 4 JPA repository interfaces.
+2025-07-31T09:06:35.415Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-07-31T09:06:35.424Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-31T09:06:35.425Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-31T09:06:35.445Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-31T09:06:35.446Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 845 ms
+2025-07-31T09:06:35.582Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-31T09:06:35.620Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-31T09:06:35.639Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-31T09:06:35.784Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-31T09:06:35.806Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-31T09:06:35.904Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:banque user=SA
+2025-07-31T09:06:35.905Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-31T09:06:35.918Z  WARN 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-31T09:06:35.927Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -63,24 +63,24 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-07-31T08:48:10.679Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-31T08:48:10.687Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.382Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-31T09:06:36.390Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     drop table if exists accounts cascade 
 Hibernate: 
     drop table if exists accounts cascade 
-2025-07-31T08:48:10.689Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.392Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     drop table if exists customers cascade 
 Hibernate: 
     drop table if exists customers cascade 
-2025-07-31T08:48:10.689Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.393Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     drop table if exists reservations cascade 
 Hibernate: 
     drop table if exists reservations cascade 
-2025-07-31T08:48:10.689Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.393Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     drop table if exists system_users cascade 
 Hibernate: 
     drop table if exists system_users cascade 
-2025-07-31T08:48:10.692Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.395Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     create table accounts (
         is_debits_blocked varchar(1),
         available_balance bigint,
@@ -110,7 +110,7 @@ Hibernate:
         account_number varchar(15) not null,
         primary key (account_number)
     )
-2025-07-31T08:48:10.696Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.400Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     create table customers (
         category varchar(1),
         nationality varchar(5),
@@ -146,7 +146,7 @@ Hibernate:
         birth_date varchar(255),
         primary key (customer_id)
     )
-2025-07-31T08:48:10.697Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.401Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     create table reservations (
         sens varchar(1),
         amount bigint,
@@ -182,7 +182,7 @@ Hibernate:
         error_message varchar(500),
         primary key (id)
     )
-2025-07-31T08:48:10.700Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
+2025-07-31T09:06:36.404Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
     create table system_users (
         failed_attempts integer,
         last_login timestamp(6),
@@ -204,57 +204,15 @@ Hibernate:
         user_type varchar(255),
         primary key (user_id)
     )
-2025-07-31T08:48:10.703Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-31T08:48:10.871Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-07-31T08:48:11.782Z  WARN 3095 --- [opv-reservation-system] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-31T08:48:11.834Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
-2025-07-31T08:48:11.876Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-07-31T08:48:11.888Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-07-31T08:48:11.930Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-07-31T08:48:11.979Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:banque'
-2025-07-31T08:48:12.031Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
-2025-07-31T08:48:12.054Z  WARN 3095 --- [opv-reservation-system] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2025-07-31T08:48:12.065Z  WARN 3095 --- [opv-reservation-system] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-07-31T08:48:12.066Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-07-31T08:48:12.067Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
-    drop table if exists accounts cascade 
-Hibernate: 
-    drop table if exists accounts cascade 
-2025-07-31T08:48:12.068Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
-    drop table if exists customers cascade 
-Hibernate: 
-    drop table if exists customers cascade 
-2025-07-31T08:48:12.068Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
-    drop table if exists reservations cascade 
-Hibernate: 
-    drop table if exists reservations cascade 
-2025-07-31T08:48:12.068Z DEBUG 3095 --- [opv-reservation-system] [  restartedMain] org.hibernate.SQL                        : 
-    drop table if exists system_users cascade 
-Hibernate: 
-    drop table if exists system_users cascade 
-2025-07-31T08:48:12.072Z  WARN 3095 --- [opv-reservation-system] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
-2025-07-31T08:48:12.072Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-31T08:48:12.073Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-31T08:48:12.080Z  INFO 3095 --- [opv-reservation-system] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-07-31T08:48:12.089Z ERROR 3095 --- [opv-reservation-system] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.560 s
-[INFO] Finished at: 2025-07-31T08:48:12Z
-[INFO] ------------------------------------------------------------------------
+2025-07-31T09:06:36.407Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-31T09:06:36.578Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-31T09:06:37.466Z  WARN 6940 --- [opv-reservation-system] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-31T09:06:37.531Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2025-07-31T09:06:37.575Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-31T09:06:37.587Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-31T09:06:37.624Z DEBUG 6940 --- [opv-reservation-system] [  restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-31T09:06:37.673Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:banque'
+2025-07-31T09:06:37.724Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-07-31T09:06:37.748Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-31T09:06:37.764Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-07-31T09:06:37.769Z  INFO 6940 --- [opv-reservation-system] [  restartedMain] c.s.r.ReservationSystemApplication       : Started ReservationSystemApplication in 3.416 seconds (process running for 3.624)
