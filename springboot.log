@@ -622,3 +622,4 @@ Hibernate:
 [THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
 2025-07-31T09:13:51.632Z DEBUG 6940 --- [opv-reservation-system] [nio-8081-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
 2025-07-31T09:13:51.718Z DEBUG 6940 --- [opv-reservation-system] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-07-31T10:28:21.810Z  WARN 6940 --- [opv-reservation-system] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m45s729ms419µs533ns).
