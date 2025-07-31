@@ -29,12 +29,17 @@
                 <form id="transactionForm" autocomplete="off" onsubmit="event.preventDefault(); executeTransaction();">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="endpoint">Endpoint</label>
-                            <input type="text" id="endpoint" class="form-input" th:value="${defaultEndpoint ?: 'http://localhost:52343/position/v2/transactionProcessor'}" required>
+                            <label for="canal">Canal</label>
+                            <select id="canal" class="form-input" required>
+                                <option value="OPVMS" selected>OPVMS (Valeur fixe pour OPV Management Système)</option>
+                                <option value="OPVAC">OPVAC</option>
+                                <option value="EBANK">EBANK</option>
+                                <option value="MOBILE">MOBILE</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="user">Utilisateur</label>
-                            <input type="text" id="user" class="form-input" th:value="${defaultUser ?: 'operateur'}" required>
+                            <input type="text" id="user" class="form-input" th:value="${defaultUser ?: 'opvuser'}" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Mot de passe</label>
