@@ -3,227 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${pageTitle ?: 'Attijariwafa Bank - Transaction Processor'}">Attijariwafa Bank - Transaction Processor</title>
+    <title th:text="${pageTitle ?: 'Transaction Processor'}">Transaction Processor</title>
     <link rel="stylesheet" th:href="@{/css/interface.css}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background: #f4f6fb; font-family: 'Inter', sans-serif; }
+        .main-header { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem 0 1rem 0; }
+        .main-header .brand { font-size: 2rem; font-weight: 700; color: #2c3e50; letter-spacing: 1px; display: flex; align-items: center; gap: 0.5rem; }
+        .main-header nav { margin-top: 1rem; }
+        .main-header .nav-link { color: #888; margin-right: 2rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .main-header .nav-link.active, .main-header .nav-link:hover { color: #3498db; }
+        .main-content { max-width: 900px; margin: 2rem auto; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(44,62,80,0.08); padding: 2.5rem 2rem; }
+        .form-title { font-size: 1.5rem; font-weight: 600; color: #2c3e50; margin-bottom: 2rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { font-weight: 500; color: #34495e; margin-bottom: 0.5rem; display: block; }
+        .form-input, .form-group select { width: 100%; padding: 0.9rem 1rem; border: 1.5px solid #e1e8ed; border-radius: 8px; font-size: 1rem; background: #f8fafd; transition: border 0.2s; }
+        .form-input:focus, .form-group select:focus { border-color: #3498db; outline: none; }
+        .action-buttons { display: flex; gap: 1rem; margin-top: 2rem; }
+        .btn { padding: 0.9rem 2rem; border-radius: 8px; border: none; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s, box-shadow 0.2s; box-shadow: 0 2px 8px rgba(52,152,219,0.08); }
+        .btn-primary { background: linear-gradient(90deg, #3498db, #2980b9); color: #fff; }
+        .btn-primary:hover { background: linear-gradient(90deg, #2980b9, #3498db); }
+        .btn-secondary { background: #f4f6fb; color: #3498db; border: 1.5px solid #3498db; }
+        .btn-secondary:hover { background: #eaf3fb; }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .dashboard { display: flex; gap: 2rem; margin: 2.5rem 0; flex-wrap: wrap; }
+        .dashboard-card { flex: 1; min-width: 180px; background: #f8fafd; border-radius: 12px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); padding: 1.5rem; text-align: center; }
+        .dashboard-card h3 { font-size: 1.1rem; color: #888; margin-bottom: 0.5rem; }
+        .dashboard-card .stat { font-size: 2.2rem; font-weight: 700; color: #3498db; }
+        .result-section { margin-top: 2.5rem; }
+        .status-card { display: flex; align-items: center; gap: 1.5rem; background: #f8fafd; border-radius: 10px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); padding: 1.5rem; }
+        .status-icon { font-size: 2.5rem; color: #3498db; }
+        .status-content h3 { margin: 0; font-size: 1.2rem; color: #2c3e50; }
+        .status-content p { color: #888; margin: 0.5rem 0 0 0; }
+        .tabs { display: flex; gap: 1rem; margin-top: 2rem; border-bottom: 1.5px solid #e1e8ed; }
+        .tab { background: none; border: none; font-weight: 600; color: #888; padding: 0.7rem 1.5rem; cursor: pointer; border-bottom: 2.5px solid transparent; transition: color 0.2s, border 0.2s; }
+        .tab.active { color: #3498db; border-bottom: 2.5px solid #3498db; }
+        .tab-content { display: none; padding: 1.5rem 0; }
+        .tab-content.active { display: block; }
+        .raw-data, .logs-container { background: #23272f; color: #e1e8ed; border-radius: 8px; padding: 1.2rem; font-family: 'Fira Mono', 'Consolas', monospace; font-size: 0.95rem; margin-bottom: 1rem; }
+        .help-section { margin-top: 2.5rem; background: #f8fafd; border-radius: 10px; padding: 2rem; }
+        .help-section h4 { color: #3498db; margin-bottom: 1rem; }
+        .help-section ul { color: #888; }
+        .footer { text-align: center; color: #aaa; font-size: 0.95rem; margin-top: 2rem; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="navbar">
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <h1><i class="fas fa-university"></i> Attijariwafa Bank</h1>
+    <header class="main-header">
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
+            <div class="brand"><i class="fas fa-university"></i> Attijariwafa Bank</div>
+            <nav>
+                <a href="#" class="nav-link active">Transaction</a>
+                <a href="#" class="nav-link">Statistiques</a>
+                <a href="#" class="nav-link">Aide</a>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="form-title">Nouvelle Transaction</div>
+        <form id="transactionForm" autocomplete="off" onsubmit="event.preventDefault(); executeTransaction();">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="endpoint">Endpoint</label>
+                    <input type="text" id="endpoint" class="form-input" th:value="${defaultEndpoint ?: 'http://localhost:8081/position/v2/transactionProcessor'}" required>
                 </div>
-                <nav class="nav-menu">
-                    <a href="#" class="nav-link active">Transaction</a>
-                    <a href="#" class="nav-link">Statistiques</a>
-                    <a href="#" class="nav-link">Aide</a>
-                </nav>
-                <span class="environment-badge">TEST</span>
+                <div class="form-group">
+                    <label for="user">Utilisateur</label>
+                    <input type="text" id="user" class="form-input" th:value="${defaultUser ?: 'operateur'}" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" class="form-input" th:value="${defaultPassword ?: 'pa123456'}" placeholder="••••••••" required>
+                </div>
+                <div class="form-group">
+                    <label for="correlationId">Correlation ID</label>
+                    <input type="text" id="correlationId" class="form-input" value="OPER_INTERFACE_001" required>
+                </div>
+                <div class="form-group">
+                    <label for="timestamp">Timestamp</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="text" id="timestamp" class="form-input" readonly>
+                        <button type="button" class="btn btn-secondary" style="padding: 0.5rem 1rem;" onclick="updateTimestamp()"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compte">Numéro de Compte</label>
+                    <input type="text" id="compte" class="form-input" th:value="${defaultAccount ?: '001234567890123'}" maxlength="15" required pattern="\d{15}" placeholder="123456789012345">
+                    <span class="help-text">Exactement 15 chiffres</span>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Montant (centimes)</label>
+                    <input type="number" id="amount" class="form-input" th:value="${defaultAmount ?: '50000'}" min="1" required placeholder="50000">
+                    <span class="help-text">Montant en centimes (ex: 50000 = 500 DH)</span>
+                </div>
+                <div class="form-group">
+                    <label for="operRef">Référence Opération</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="text" id="operRef" class="form-input" value="OPER_RESER_001" required>
+                        <button type="button" class="btn btn-secondary" style="padding: 0.5rem 1rem;" onclick="manualRegenerateOperRef()"><i class="fas fa-dice"></i></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ruleCode">Code Règle</label>
+                    <select id="ruleCode" class="form-input" required>
+                        <option value="RESER" selected>RESER (Réservation)</option>
+                        <option value="OPCAN">OPCAN (Annulation)</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="signature">Signature SHA1</label>
+                    <input type="text" id="signature" class="form-input" readonly placeholder="Sera générée automatiquement">
+                </div>
             </div>
-        </header>
-        <main>
-            <section class="section" aria-labelledby="transactionFormTitle">
-                <h2 id="transactionFormTitle">Nouvelle Transaction</h2>
-                <form id="transactionForm" autocomplete="off" onsubmit="event.preventDefault(); executeTransaction();">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="endpoint">Endpoint</label>
-                            <input type="text" id="endpoint" class="form-input" th:value="${defaultEndpoint ?: 'http://localhost:52343/position/v2/transactionProcessor'}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="user">Utilisateur</label>
-                            <input type="text" id="user" class="form-input" th:value="${defaultUser ?: 'operateur'}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" id="password" class="form-input" th:value="${defaultPassword ?: 'pa123456'}" placeholder="••••••••" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="correlationId">Correlation ID</label>
-                            <input type="text" id="correlationId" class="form-input" value="OPER_INTERFACE_001" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="timestamp">Timestamp</label>
-                            <div class="input-group">
-                                <input type="text" id="timestamp" class="form-input" readonly>
-                                <button type="button" class="btn btn-small btn-secondary" onclick="updateTimestamp()">
-                                    <i class="fas fa-sync-alt"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="compte">Numéro de Compte</label>
-                            <input type="text" id="compte" class="form-input" th:value="${defaultAccount ?: '001234567890123'}" maxlength="15" required pattern="\d{15}" placeholder="123456789012345">
-                            <span class="help-text">Exactement 15 chiffres</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="amount">Montant (centimes)</label>
-                            <input type="number" id="amount" class="form-input" th:value="${defaultAmount ?: '50000'}" min="1" required placeholder="50000">
-                            <span class="help-text">Montant en centimes (ex: 50000 = 500 DH)</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="operRef">Référence Opération</label>
-                            <div class="input-group">
-                                <input type="text" id="operRef" class="form-input" value="OPER_RESER_001" required>
-                                <button type="button" class="btn btn-small btn-secondary" onclick="manualRegenerateOperRef()">
-                                    <i class="fas fa-dice"></i>
-                                </button>
-                            </div>
-                            <div id="operRefStatus" class="help-text hidden">
-                                <i class="fas fa-info-circle"></i> <span id="operRefMessage">Référence mise à jour automatiquement</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ruleCode">Code Règle</label>
-                            <select id="ruleCode" class="form-input" required>
-                                <option value="RESER" selected>RESER (Réservation)</option>
-                                <option value="OPCAN">OPCAN (Annulation)</option>
-                            </select>
-                        </div>
-                        <div class="form-group signature-group">
-                            <label for="signature">Signature SHA1</label>
-                            <input type="text" id="signature" class="form-input" readonly placeholder="Sera générée automatiquement">
-                            <div class="signature-status" id="signatureStatus"></div>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button type="button" class="btn btn-generate" onclick="generateSignatureAjax()">
-                            <i class="fas fa-key"></i> Générer Signature
-                        </button>
-                        <button type="button" class="btn btn-validate" onclick="validateForm()">
-                            <i class="fas fa-check-circle"></i> Valider Paramètres
-                        </button>
-                        <button type="submit" class="btn btn-primary" id="executeBtn" disabled>
-                            <i class="fas fa-play"></i> Exécuter Transaction
-                        </button>
-                        <button type="button" class="btn btn-secondary" onclick="resetForm()">
-                            <i class="fas fa-trash-alt"></i> Réinitialiser
-                        </button>
-                    </div>
-                </form>
-            </section>
-            <section class="section result-section" id="resultSection" style="display: none;" aria-labelledby="resultSectionTitle">
-                <h2 id="resultSectionTitle">Résultats de la Transaction</h2>
-                <div class="status-card" id="statusCard">
-                    <div class="status-icon" id="statusIcon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="status-content">
-                        <h3 id="statusTitle">En attente</h3>
-                        <p id="statusMessage">Aucune transaction exécutée</p>
-                    </div>
+            <div class="action-buttons">
+                <button type="button" class="btn btn-secondary" onclick="generateSignatureAjax()"><i class="fas fa-key"></i> Générer Signature</button>
+                <button type="button" class="btn btn-secondary" onclick="validateForm()"><i class="fas fa-check-circle"></i> Valider Paramètres</button>
+                <button type="submit" class="btn btn-primary" id="executeBtn" disabled><i class="fas fa-play"></i> Exécuter Transaction</button>
+                <button type="button" class="btn btn-secondary" onclick="resetForm()"><i class="fas fa-trash-alt"></i> Réinitialiser</button>
+            </div>
+        </form>
+        <div class="dashboard">
+            <div class="dashboard-card">
+                <h3>Transactions</h3>
+                <div class="stat" id="totalTransactions">0</div>
+                <div class="stat-label">Total</div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Taux de Succès</h3>
+                <div class="stat" id="successRate">0%</div>
+                <div class="stat-label">Succès</div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Temps Moyen</h3>
+                <div class="stat" id="avgResponseTime">0ms</div>
+                <div class="stat-label">Réponse</div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Dernière MAJ</h3>
+                <div class="stat" id="lastUpdate">-</div>
+                <div class="stat-label">Mise à jour</div>
+            </div>
+        </div>
+        <section class="result-section" id="resultSection" style="display: none;">
+            <div class="status-card" id="statusCard">
+                <div class="status-icon" id="statusIcon"><i class="fas fa-clock"></i></div>
+                <div class="status-content">
+                    <h3 id="statusTitle">En attente</h3>
+                    <p id="statusMessage">Aucune transaction exécutée</p>
                 </div>
-                <div class="result-grid">
-                    <div class="result-item">
-                        <label>Return Code</label>
-                        <div class="value" id="returnCode">-</div>
-                    </div>
-                    <div class="result-item">
-                        <label>Error Code</label>
-                        <div class="value" id="errorCode">-</div>
-                    </div>
-                    <div class="result-item">
-                        <label>Message</label>
-                        <div class="value" id="message">-</div>
-                    </div>
-                    <div class="result-item">
-                        <label>Nouveau Solde</label>
-                        <div class="value" id="newBalance">-</div>
-                    </div>
-                    <div class="result-item">
-                        <label>Temps de Réponse</label>
-                        <div class="value" id="responseTime">-</div>
-                    </div>
-                    <div class="result-item">
-                        <label>Timestamp</label>
-                        <div class="value" id="responseTimestamp">-</div>
-                    </div>
-                </div>
-                <div class="tabs">
-                    <button class="tab active" onclick="showTab(event, 'requestTab')">
-                        <i class="fas fa-paper-plane"></i> Requête
-                    </button>
-                    <button class="tab" onclick="showTab(event, 'responseTab')">
-                        <i class="fas fa-inbox"></i> Réponse
-                    </button>
-                    <button class="tab" onclick="showTab(event, 'logsTab')">
-                        <i class="fas fa-list-alt"></i> Logs
-                    </button>
-                </div>
-                <div class="tab-content active" id="requestTab">
-                    <h4>Requête SOAP Envoyée</h4>
-                    <div class="raw-data" id="rawRequest"></div>
-                    <button class="btn btn-small btn-secondary" onclick="copyToClipboard('rawRequest')">
-                        <i class="fas fa-copy"></i> Copier
-                    </button>
-                </div>
-                <div class="tab-content" id="responseTab">
-                    <h4>Réponse SOAP Reçue</h4>
-                    <div class="raw-data" id="rawResponse"></div>
-                    <button class="btn btn-small btn-secondary" onclick="copyToClipboard('rawResponse')">
-                        <i class="fas fa-copy"></i> Copier
-                    </button>
-                </div>
-                <div class="tab-content" id="logsTab">
-                    <h4>Logs de Transaction</h4>
-                    <div class="logs-container" id="transactionLogs"></div>
-                </div>
-            </section>
-            <section class="section dashboard-grid">
-                <div class="stat-card info">
-                    <h3>Transactions</h3>
-                    <div class="stat-number" id="totalTransactions">0</div>
-                    <div class="stat-label">Total</div>
-                </div>
-                <div class="stat-card success">
-                    <h3>Taux de Succès</h3>
-                    <div class="stat-number" id="successRate">0%</div>
-                    <div class="stat-label">Succès</div>
-                </div>
-                <div class="stat-card info">
-                    <h3>Temps Moyen</h3>
-                    <div class="stat-number" id="avgResponseTime">0ms</div>
-                    <div class="stat-label">Réponse</div>
-                </div>
-                <div class="stat-card warning">
-                    <h3>Dernière MAJ</h3>
-                    <div class="stat-number" id="lastUpdate">-</div>
-                    <div class="stat-label">Mise à jour</div>
-                </div>
-            </section>
-            <section class="section help-section">
-                <details open>
-                    <summary>Aide et Informations</summary>
-                    <div class="help-content">
-                        <h4>Format de Signature:</h4>
-                        <code>SHA1(canal + user + timestamp + account + certificat)</code>
-                        <h4>Codes d'Erreur Fréquents:</h4>
-                        <ul>
-                            <li><strong>99:</strong> Signature requête invalide</li>
-                            <li><strong>23:</strong> Compte inexistant</li>
-                            <li><strong>06:</strong> Format de compte invalide</li>
-                            <li><strong>01:</strong> Erreur métier (solde insuffisant)</li>
-                            <li><strong>CORS:</strong> Erreur de politique cross-origin</li>
-                        </ul>
-                        <h4>Configuration CORS Spring Boot:</h4>
-                        <code>@CrossOrigin(origins = "*")<br>@RestController<br>public class TransactionController { ... }</code>
-                        <div class="help-shortcuts">
-                            <div class="shortcut"><span class="shortcut-key">Ctrl+Enter</span> <span class="shortcut-desc">Exécuter</span></div>
-                            <div class="shortcut"><span class="shortcut-key">Ctrl+G</span> <span class="shortcut-desc">Générer Signature</span></div>
-                            <div class="shortcut"><span class="shortcut-key">F5</span> <span class="shortcut-desc">Actualiser Timestamp</span></div>
-                            <div class="shortcut"><span class="shortcut-key">Ctrl+R</span> <span class="shortcut-desc">Réinitialiser</span></div>
-                        </div>
-                    </div>
-                </details>
-                <footer class="text-center mt-2">
-                    <p class="mb-1"><i class="fas fa-shield-alt" style="color: var(--error-color);"></i> Attijariwafa Bank - Interface Sécurisée</p>
-                    <p class="mb-1" style="font-size: 0.9rem; color: #888;">Simulateur de transactions pour environnement de test</p>
-                </footer>
-            </section>
-        </main>
-    </div>
+            </div>
+            <div class="tabs">
+                <button class="tab active" onclick="showTab(event, 'requestTab')"><i class="fas fa-paper-plane"></i> Requête</button>
+                <button class="tab" onclick="showTab(event, 'responseTab')"><i class="fas fa-inbox"></i> Réponse</button>
+                <button class="tab" onclick="showTab(event, 'logsTab')"><i class="fas fa-list-alt"></i> Logs</button>
+            </div>
+            <div class="tab-content active" id="requestTab">
+                <h4>Requête SOAP Envoyée</h4>
+                <div class="raw-data" id="rawRequest"></div>
+                <button class="btn btn-secondary" style="padding: 0.5rem 1rem;" onclick="copyToClipboard('rawRequest')"><i class="fas fa-copy"></i> Copier</button>
+            </div>
+            <div class="tab-content" id="responseTab">
+                <h4>Réponse SOAP Reçue</h4>
+                <div class="raw-data" id="rawResponse"></div>
+                <button class="btn btn-secondary" style="padding: 0.5rem 1rem;" onclick="copyToClipboard('rawResponse')"><i class="fas fa-copy"></i> Copier</button>
+            </div>
+            <div class="tab-content" id="logsTab">
+                <h4>Logs de Transaction</h4>
+                <div class="logs-container" id="transactionLogs"></div>
+            </div>
+        </section>
+        <section class="help-section">
+            <h4>Aide & Informations</h4>
+            <ul>
+                <li><b>Format de Signature:</b> SHA1(canal + user + timestamp + account + certificat)</li>
+                <li><b>Codes d'Erreur Fréquents:</b> 99: Signature requête invalide, 23: Compte inexistant, 06: Format de compte invalide, 01: Erreur métier (solde insuffisant), CORS: Erreur de politique cross-origin</li>
+                <li><b>Configuration CORS Spring Boot:</b> <code>@CrossOrigin(origins = "*")</code></li>
+            </ul>
+        </section>
+        <div class="footer">Attijariwafa Bank &copy; 2024 — Interface professionnelle de transactions (Test)</div>
+    </main>
     <div class="loading-section hidden" id="loadingSection">
         <div class="spinner"></div>
         <div class="loading-text">Traitement de la transaction en cours...</div>
